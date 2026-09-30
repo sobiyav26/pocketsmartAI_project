@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Dashboard — PocketSmart AI{% endblock %}
+{% block content %}<section class="page-head"><span class="eyebrow">DASHBOARD</span><h1>Hello, {{ user.name }}.</h1><p>{{ count }} saved recommendation{{ '' if count == 1 else 's' }}.</p></section>
+<section class="grid three"><a class="card card-link" href="/planner/home"><div class="icon">🏠</div><h3>Home Planner</h3><p>Interior budget allocation.</p></a>
+<a class="card card-link" href="/planner/party"><div class="icon">🎉</div><h3>Party Planner</h3><p>Event budget allocation.</p></a>
+<a class="card card-link" href="/planner/jewelry"><div class="icon">💎</div><h3>Jewelry Planner</h3><p>Occasion + style matching.</p></a></section>{% endblock %}

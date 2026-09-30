@@ -1,0 +1,8 @@
+1. Open this folder in VS Code.
+2. Create/activate .venv.
+3. Run: pip install -r requirements.txt
+4. Copy .env.example to .env
+5. For zero-key testing set USE_MOCK_AI=true
+6. Run: python run.py
+7. Visit http://127.0.0.1:8000
+8. Run tests: pytest -q

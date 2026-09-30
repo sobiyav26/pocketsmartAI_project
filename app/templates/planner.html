@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block title %}{{ planner_type|title }} Planner — PocketSmart AI{% endblock %}
+{% block content %}<section class="page-head"><span class="eyebrow">{{ planner_type|upper }} PLANNER</span><h1>{{ planner_type|title }} budget planner</h1><p>Enter your requirements. The AI will produce a structured plan and search links.</p></section>
+<form id="plannerForm" class="planner-form" data-type="{{ planner_type }}">
+{% if planner_type == "home" %}
+<label>Total budget (₹)<input name="budget" type="number" min="1" required></label><label>Rooms<input name="rooms" placeholder="Living Room, Bedroom" required></label>
+<label>Items and quantities<textarea name="items" placeholder="lights: 4&#10;ceiling fans: 2&#10;dining table: 1"></textarea></label>
+<label>Style<select name="style"><option>Modern</option><option>Minimalist</option><option>Traditional</option><option>Bohemian</option><option>Contemporary</option></select></label>
+<label>Notes<textarea name="notes"></textarea></label>
+{% elif planner_type == "party" %}
+<label>Total budget (₹)<input name="budget" type="number" min="1" required></label><label>Guest count<input name="guests" type="number" min="1" required></label>
+<label>Event type<input name="event_type" placeholder="Birthday, wedding, corporate..." required></label><label>Venue<input name="venue" placeholder="Home, banquet hall, hotel..."></label>
+<label>City<input name="city" placeholder="Puducherry, Chennai..."></label><label>Preferences<textarea name="preferences"></textarea></label>
+{% else %}
+<label>Budget (₹)<input name="budget" type="number" min="1" required></label><label>Occasion<input name="occasion" required></label>
+<label>Style<select name="style"><option>Elegant</option><option>Minimalist</option><option>Traditional</option><option>Modern</option><option>Statement</option></select></label>
+<label>Notes<textarea name="notes"></textarea></label><label>Optional outfit image<input name="outfit" type="file" accept="image/*"></label>
+{% endif %}
+<button class="btn primary" type="submit">Generate recommendations</button></form>
+<div id="loading" class="notice hidden">Generating your plan…</div><div id="result"></div>{% endblock %}
+{% block scripts %}<script>bindPlanner();</script>{% endblock %}
